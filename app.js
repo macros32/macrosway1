@@ -1,21 +1,23 @@
-// Basic pickup menu functionality
-document.addEventListener("DOMContentLoaded", function () {
-  const app = document.getElementById("app");
-
+document.addEventListener("DOMContentLoaded", () => {
   const menuItems = [
-    { name: "Protein Power Bowl", macros: "P: 45g / C: 40g / F: 12g", price: "$10" },
-    { name: "Keto Sunrise", macros: "P: 38g / C: 8g / F: 28g", price: "$11" },
-    { name: "Balanced Berry Oats", macros: "P: 25g / C: 50g / F: 10g", price: "$8" },
+    { name: "Balanced Bowl", protein: 30, carbs: 30, fats: 18.5, price: "$9.50", emoji: "🥗" },
+    { name: "High Protein", protein: 45, carbs: 6, fats: 12, price: "$10.50", emoji: "🍗" },
+    { name: "Low Carb Bowl", protein: 40, carbs: 10, fats: 15, price: "$10.00", emoji: "🥩" },
+    { name: "Keto Bowl", protein: 55, carbs: 4, fats: 41, price: "$11.50", emoji: "🥓" },
   ];
 
-  const list = document.createElement("ul");
-  list.className = "menu-list";
+  const menuList = document.getElementById("menu-list");
 
   menuItems.forEach(item => {
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>${item.name}</strong><br><span>${item.macros}</span><br><em>${item.price}</em>`;
-    list.appendChild(li);
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="emoji">${item.emoji}</div>
+      <p><strong>${item.name}</strong></p>
+      <p>${item.protein}P • ${item.carbs}C • ${item.fats}F</p>
+      <p><em>${item.price}</em></p>
+    `;
+    card.onclick = () => alert(`You selected: ${item.name}`);
+    menuList.appendChild(card);
   });
-
-  app.appendChild(list);
 });
