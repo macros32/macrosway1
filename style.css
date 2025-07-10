@@ -1,0 +1,50 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #fafafa;
+  color: #333;
+}
+
+#app {
+  max-width: 500px;
+  margin: auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #4caf50;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.menu-list li {
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fdfdfd;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
