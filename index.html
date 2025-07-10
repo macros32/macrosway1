@@ -1,121 +1,13 @@
-// MacroWay Full App – Mobile-Style Replica UI
-
-import React, { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-const meals = [
-  {
-    title: "Balanced Bowl",
-    protein: 30,
-    carbs: 30,
-    fats: 18.5,
-    price: 9.5,
-    emoji: "🥗",
-  },
-  {
-    title: "High Protein",
-    protein: 45,
-    carbs: 6,
-    fats: 12,
-    price: 10.5,
-    emoji: "🍗",
-  },
-  {
-    title: "Low Carb Bowl",
-    protein: 40,
-    carbs: 10,
-    fats: 15,
-    price: 10,
-    emoji: "🥩",
-  },
-  {
-    title: "Keto Bowl",
-    protein: 55,
-    carbs: 4,
-    fats: 41,
-    price: 11.5,
-    emoji: "🥓",
-  },
-];
-
-export default function MacroWayApp() {
-  const [selected, setSelected] = useState(null);
-  const [order, setOrder] = useState([]);
-
-  const total = order.reduce((sum, m) => sum + m.price, 0).toFixed(2);
-
-  return (
-    <div className="bg-white min-h-screen p-4 max-w-md mx-auto">
-      {!selected ? (
-        <>
-          <h1 className="text-xl font-bold text-green-800 text-center mb-4">
-            MACROWAY
-          </h1>
-          <h2 className="text-md text-center font-semibold mb-2">
-            Order by Macros
-          </h2>
-          <div className="grid grid-cols-2 gap-4">
-            {meals.map((item, i) => (
-              <Card
-                key={i}
-                onClick={() => setSelected(item)}
-                className="cursor-pointer hover:shadow-lg transition"
-              >
-                <CardContent className="p-3 text-center">
-                  <div className="text-4xl mb-2">{item.emoji}</div>
-                  <p className="font-semibold text-sm">{item.title}</p>
-                  <p className="text-xs text-gray-500">
-                    {item.protein}P • {item.carbs}C • {item.fats}F
-                  </p>
-                  <p className="text-sm font-medium mt-1">${item.price}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <Button className="w-full mt-6">Build a Bowl</Button>
-        </>
-      ) : (
-        <>
-          <Button className="mb-2" onClick={() => setSelected(null)}>
-            ← Back
-          </Button>
-          <h2 className="text-xl font-bold text-center mb-2">
-            {selected.title}
-          </h2>
-
-          <div className="flex justify-center my-4">
-            <div className="text-center">
-              <div className="font-semibold">{selected.protein}g</div>
-              <div className="text-sm text-gray-600">Protein</div>
-            </div>
-            <div className="text-center mx-6">
-              <div className="font-semibold">{selected.carbs}g</div>
-              <div className="text-sm text-gray-600">Carbs</div>
-            </div>
-            <div className="text-center">
-              <div className="font-semibold">{selected.fats}g</div>
-              <div className="text-sm text-gray-600">Fats</div>
-            </div>
-          </div>
-
-          <div className="mb-4">
-            <p className="text-sm text-gray-500">Extra Guacamole</p>
-            <p className="text-sm">Pickup ASAP: 1254 La Jolla Village Dr</p>
-            <p className="text-lg font-bold mt-2">Total: ${selected.price}</p>
-          </div>
-
-          <Button
-            onClick={() => {
-              setOrder([...order, selected]);
-              setSelected(null);
-            }}
-            className="w-full"
-          >
-            Place Order
-          </Button>
-        </>
-      )}
-    </div>
-  );
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MacroWay</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
